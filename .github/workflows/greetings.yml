@@ -1,0 +1,16 @@
+name: Greetings
+
+on: [pull_request, issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: 'Welcome to the gDesk hardware repo! Thanks for contributing with an issue - we should be back to you soon. Whilst you wait, why not check out our other projects?'
+        pr-message: 'Welcome to the gDesk hardware repo! Thanks for contributing with a pull request - we really appreciate it. We will be back to you soon, but why not check out our other projects while you wait?'
